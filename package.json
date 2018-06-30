@@ -57,6 +57,7 @@
     "start-js": "react-scripts start",
     "start:server": "nodemon ./server.js --exec babel-node -e js",
     "start": "npm-run-all -p watch-css start-js",
+    "build:server": "babel ./server.js --out-dir server/build",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
