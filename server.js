@@ -9,8 +9,8 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import flash from 'connect-flash';
-import configurePassport  from './server/config/passport';
-import { router } from './server/routes/router';
+import configurePassport  from '../config/passport';
+import { router } from '../routes/router';
 
 
 

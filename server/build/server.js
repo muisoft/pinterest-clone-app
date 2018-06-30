@@ -40,11 +40,11 @@ var _connectFlash = require('connect-flash');
 
 var _connectFlash2 = _interopRequireDefault(_connectFlash);
 
-var _passport3 = require('./server/config/passport');
+var _passport3 = require('../config/passport');
 
 var _passport4 = _interopRequireDefault(_passport3);
 
-var _router = require('./server/routes/router');
+var _router = require('../routes/router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
