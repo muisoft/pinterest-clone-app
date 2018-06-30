@@ -1,0 +1,237 @@
+
+body {
+     font-family: "Roboto", sans-serif;
+    
+}
+@import '../../globals';
+
+html {
+     background: rgba(0, 0, 0, 0.05); 
+    font-size: 14px;
+    min-width: 100%;
+   // padding-left: 70px;
+}
+@include react-md-everything;
+
+.home {
+  text-align: center;
+  
+}
+.home-logo {
+  animation: home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+#title {
+  // color: $md-light-blue-500;
+   font-weight: bold;
+   text-align: center;
+}
+#star {
+  width: 60px;
+ font-size: 18px;
+// color: $md-light-blue-500;
+ }
+ #star #count {
+     font-size: 14px;
+ }
+a {
+  text-decoration:  none;
+  color: #fff;
+  
+}
+
+.home-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+
+  h2 {
+    color: $md-white-base;
+  }
+}
+
+.home-intro {
+  font-size: large;
+}
+
+@keyframes home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.login-wrapper {
+  //// display: flex;
+  // flex-direction:  row;
+   //align-items: center;
+  // justify-content: center;
+  position: absolute;
+ 
+ top: -360px;
+  left: 25%;
+   height: 300px;
+     
+}
+
+.message {
+  text-align: center;
+}
+
+.option-signin { 
+   font-size: 16px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.login-form { 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding-top: 5px; 
+  padding-left: 5px;
+    .line-divider {
+      width: 260px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      justify-content: center; 
+      padding: 10px;
+    }
+    .line-divider span {
+      padding: 5px;
+      color: darkgreen;
+    }
+}
+.signin {
+  @extend .login-form;
+  padding-bottom: 0px;
+}
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.card_actions {
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.card1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+/**.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    padding-top: 3%;
+    //margin-left: auto;
+    //margin-right: auto; 
+}**/
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3%;
+}
+.card {
+    min-width: 300px;
+    
+    height: auto;
+    margin: 7px;
+}
+.login-card {
+ @extend .card;
+  width: 520px;
+  height: 500px;
+  padding: 30px;
+}
+.my-card {
+  @extend .card;
+  min-width: 150px;
+  max-width: 150px;
+  
+  
+  margin: auto;
+  padding: 5px;
+}
+#masonry-layout {
+  margin: 5px auto;
+  
+}
+.gallery {
+  display: grid;
+  grid-gap: 10px;
+}
+container {
+  
+}
+
+@media screen and (max-width: 640px) {
+  .cards {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .my-card {
+   margin: 3px; 
+  }
+}
+.social-button {
+  color: #fff;
+}
+.social-icon { 
+  margin-right: 5px; 
+  color: #fff 
+}
+.facebook-button {
+  @extend .social-button;
+  background-color: royalblue;
+}
+.twitter-button {
+  @extend .social-button;
+  background-color: #55acee;
+
+}
+
+  .masonry-grid {
+  position: relative;
+}
+.masonry-grid .grid-item {
+  position: absolute;
+  transition: top 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955), left 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@media (min-width: 360px) and (max-width: 640px){
+    .small-device {
+       justify-content: flex-start;
+       font-size: 12px;
+    }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+   .small-device {
+       justify-content: flex-end;
+       font-size: 10px;
+       width: 100px;
+    } 
+}
