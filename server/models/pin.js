@@ -1,7 +1,7 @@
 //import '../dotenvconfig';
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/pinterest');//process.env.DB_CONN);
+mongoose.connect(process.env.DB_CONN);
 
 const pinSchema = mongoose.Schema({
     title: String,
