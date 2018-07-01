@@ -57,7 +57,9 @@
     "start-js": "react-scripts start",
     "start:server": "nodemon ./server.js --exec babel-node -e js",
     "start": "npm-run-all -p watch-css start-js",
-    "build:server": "babel ./server.js --out-dir server/build",
+    "build:server1": "babel server --out-dir server/build",
+    "build:server2": "babel ./server.js --out-dir server/build",
+    "build:server": "npm run build:server1 && npm run build:server2 -- --watch --recursive",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
