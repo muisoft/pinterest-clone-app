@@ -1,7 +1,7 @@
 
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.LOCAL_DB_CONN);
+mongoose.connect(process.env.DB_CONN);
 
 const pinSchema = mongoose.Schema({
     title: String,
