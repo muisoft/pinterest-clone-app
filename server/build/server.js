@@ -50,15 +50,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 var MongoStore = (0, _connectMongo2.default)(_expressSession2.default);
-var PORT = process.env.PORT || 5002;
+var PORT = process.env.PORT || 5000;
 var dev = app.get('env') !== 'production';
 
 if (!dev) {
-  app.disable('x-powered-by');
-  app.use((0, _morgan2.default)('dev'));
-  app.use(compression());
+  app.use((0, _morgan2.default)('common'));
   app.use(_express2.default.static(_path2.default.resolve(__dirname, 'build')));
-
   //The 'catch all' handler that route any route that is not match api routes to React index.html
   app.get('*', function (req, res) {
     res.sendFile(_path2.default.resolve(__dirname, 'build', 'index.html'));
@@ -68,16 +65,16 @@ if (dev) {
   app.use((0, _morgan2.default)('dev'));
   app.use(_express2.default.static(_path2.default.join(__dirname, './public')));
 }
-//app.use(cookieParser());
-//app.use(session({
-// secret: 'pinterest',
-// saveUninitialized: true,
-//  resave: true,
-//store: new MongoStore({mongooseConnection: mongoose.connection})
-//}));
+app.use((0, _cookieParser2.default)());
+app.use((0, _expressSession2.default)({
+  secret: 'pinterestclone',
+  saveUninitialized: true,
+  resave: true,
+  store: new MongoStore({ mongooseConnection: _mongoose2.default.connection })
+}));
 app.use(_passport2.default.initialize());
-//app.use(flash());
-//app.use(passport.session());
+app.use((0, _connectFlash2.default)());
+app.use(_passport2.default.session());
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
