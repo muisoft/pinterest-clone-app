@@ -56,15 +56,16 @@ var savePics = exports.savePics = function savePics(req, res) {
 
 var allPics = exports.allPics = function allPics(req, res) {
   _models.Pin.find({}, function (err, pins) {
-    res.json({ pins: pins, user: req.user });
+    res.json({ pins: pins });
   });
 };
 
 var myPics = exports.myPics = function myPics(req, res) {
   var _id = req.user._id;
 
-
+  console.log('Yewo: ' + JSON.stringify(req.user));
   _models.Pin.find({ owner: _id }, function (err, pins) {
+    console.log('Yewo: ' + JSON.stringify(pins));
     res.json(pins);
   });
 };

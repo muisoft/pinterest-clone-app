@@ -46,7 +46,7 @@ router.get('/auth/twitter/callback', _passport2.default.authenticate('twitter-si
 
 router.post('/signin', function (req, res, next) {
 
-  return _passport2.default.authenticate('local-signin', { session: false }, function (err, user) {
+  return _passport2.default.authenticate('local-signin', function (err, user) {
     req.logIn(user, function (err) {
       return res.json(user);
     });
