@@ -33,15 +33,15 @@ if(dev){
     app.use(express.static(path.join(__dirname, './public')));
 }
 //app.use(cookieParser());
-app.use(session({
-   secret: 'pinterest',
-   saveUninitialized: true,
-    resave: true,
-    store: new MongoStore({mongooseConnection: mongoose.connection})
-}));
+//app.use(session({
+  // secret: 'pinterest',
+  // saveUninitialized: true,
+  //  resave: true,
+    //store: new MongoStore({mongooseConnection: mongoose.connection})
+//}));
 app.use(passport.initialize());
-app.use(flash());
-app.use(passport.session());
+//app.use(flash());
+//app.use(passport.session());
 
 app.use(bodyParser.json());
 app.use( bodyParser.urlencoded({ extended: false }));
