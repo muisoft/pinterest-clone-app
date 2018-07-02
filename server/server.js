@@ -32,7 +32,7 @@ if(dev){
   app.use(morgan('dev'));
     app.use(express.static(path.join(__dirname, './public')));
 }
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(session({
    secret: 'pinterest',
    saveUninitialized: true,
