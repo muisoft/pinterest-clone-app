@@ -34,7 +34,7 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build:server": "cd server && yarn run build",
-    "build": "npm run build-css && react-scripts build && build:server",
+    "build": "npm run build-css && react-scripts build",
     "heroku-postbuild": "yarn build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
