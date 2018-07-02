@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import App from './components/App';
-//import registerServiceWorker from './registerServiceWorker';
+import { unregister } from './registerServiceWorker';
 import WebFontLoader from 'webfontloader';
 
 import store, { history } from './store';
@@ -25,3 +25,4 @@ ReactDOM.render(
     </ConnectedRouter>
   </Provider>, document.getElementById('root'));
 //registerServiceWorker();
+unregister();
