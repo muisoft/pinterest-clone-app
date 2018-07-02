@@ -15,5 +15,4 @@ const AppToolbar = ({ location, toolbar }) => {
         </div>
     )
 }
-
 export default AppToolbar;

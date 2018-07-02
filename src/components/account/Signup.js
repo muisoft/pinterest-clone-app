@@ -4,7 +4,7 @@ import { Button, TextField, Card, FontIcon, Divider } from 'react-md';
 
 import { withMainComponent } from '../hoc';
 
-const Signup = ({ onSignup, handleChange }) => {     
+const Signup = ({ onSignup, handleChange }) => {
     return (
         <form className="login-form" onSubmit={onSignup}>
                     <div className="login-form">
@@ -38,7 +38,7 @@ const Signup = ({ onSignup, handleChange }) => {
 
                             <Button raised primary style={{ marginTop: 15 }} type="submit">Sign up</Button>
                         </div>
-                        <div className="option-signin">
+                        <div className="option-signin" style={{ marginTop: 10 }}>
                             <span style={{ paddingRight: 5 }}>Already have an account? </span><Button href="/account/login" primary> Sign in</Button>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const Signup = ({ onSignup, handleChange }) => {
 }
 
 Signup.PropTypes = {
-    onSignup: PropTypes.func.isRequired, 
+    onSignup: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired
 }
 

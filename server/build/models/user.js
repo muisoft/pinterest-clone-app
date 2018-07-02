@@ -11,8 +11,7 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_mongoose2.default.connect(process.env.DB_CONN); //import '../dotenvconfig';
-
+_mongoose2.default.connect(process.env.DB_CONN);
 var userSchema = _mongoose2.default.Schema({
     username: String,
     password: String,

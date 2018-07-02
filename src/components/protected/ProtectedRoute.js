@@ -4,12 +4,12 @@ import { withMainComponent } from '../hoc';
 
 const ProtectedRoute = ({ component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (
-       rest.user.username 
+       rest.user.username
          ? <Component {...props} />
          : <Redirect to={{
              pathname: '/account/login',
              state: {from: props.location}
-         }} />     
+         }} />
     )} />
 )
 

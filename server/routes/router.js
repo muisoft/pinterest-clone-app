@@ -1,4 +1,4 @@
-import express from 'express';  
+import express from 'express';
 import passport from 'passport';
 import { User } from '../models';
 
@@ -24,30 +24,30 @@ const isLoggedIn = (req, res, next) => {
 
 router.get('/signout', (req, res) => {
     req.logout();
-    res.json({ success: true});    
+    res.json({ success: true});
 })
 
 router.get('/auth/twitter', (req, res, next) => {
   return passport.authenticate('twitter-signin')(req, res, next);
 })
 
-router.get('/auth/twitter/callback', 
+router.get('/auth/twitter/callback',
       passport.authenticate('twitter-signin', { failureredirect: redir + 'account/login'}),
       (req, res) => {
         res.redirect(redir + 'allpics')
       })
 
 router.post('/signin', (req, res, next) => {
-  
-  return passport.authenticate('local-signin', {session: false}, (err, user) => {
+
+  return passport.authenticate('local-signin', (err, user) => {
     req.logIn(user, err => {
       return res.json(user);
     })
-     
+
   })(req, res, next);
 });
 
-router.post('/signup', (req, res) => { 
+router.post('/signup', (req, res) => {
   signup(req, res);
 })
 
@@ -56,7 +56,7 @@ router.post('/savepics', isLoggedIn, (req, res) => {
 });
 
 router.get('/allpics', isLoggedIn, (req, res) => {
-  allPics(req, res);  
+  allPics(req, res);
 });
 
 router.get('/mypics', isLoggedIn, (req, res) => {

@@ -20,8 +20,8 @@ export const pinterest = (state = initialState, action) => {
         case ActionType.ON_SUCCESS:
             return {
                 ...state,
-                pics: action.payload.pins,
-                user: action.payload.user ? action.payload.user : null
+                pics: action.payload.pins
+                //user: action.payload.user ? action.payload.user : null
             }
         case ActionType.ON_SIGNIN:
             return {

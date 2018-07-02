@@ -12,19 +12,20 @@ import flash from 'connect-flash';
 import configurePassport  from './config/passport';
 import { router } from './routes/router';
 
-
-
 const app = express();
 const MongoStore = connectMongo(session);
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 const dev = app.get('env') !== 'production';
 
 if(!dev){
- app.use(morgan('common'));
+ app.disable('x-powered-by');
+ app.use(morgan('dev'));
+ app.use(compression());
  app.use(express.static(path.resolve(__dirname, 'build')));
+
  //The 'catch all' handler that route any route that is not match api routes to React index.html
  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
  })
 }
 if(dev){
@@ -33,8 +34,8 @@ if(dev){
 }
 app.use(cookieParser());
 app.use(session({
-    secret: 'pinterestclone',
-    saveUninitialized: true,
+   secret: 'pinterest',
+   saveUninitialized: true,
     resave: true,
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));

@@ -14,7 +14,7 @@ import  { withMainComponent }  from '../hoc';
 
 const ToolbarActions = ({ toLogin, toAllPics, toMyPics, pics, newBook, pathname, user }) => {
     const actions = () => {
-        if (user.username) {
+       if (user.username ) {
             return (
                 <div className="md-grid">
                     <Button flat style={{ marginTop: 6 }} onClick={toAllPics}>All Pics</Button>
@@ -25,7 +25,7 @@ const ToolbarActions = ({ toLogin, toAllPics, toMyPics, pics, newBook, pathname,
                         image={user.thumbnail} />
                 </div>
             )
-        } else {
+      } else {
             return (
                 <div className="md-grid" >
                     <Button icon onClick={toLogin}>account_circle</Button>
@@ -41,12 +41,12 @@ const ToolbarActions = ({ toLogin, toAllPics, toMyPics, pics, newBook, pathname,
 }
 
 ToolbarActions.PropTypes = {
-    toLogin: PropTypes.func.isRequired, 
-    toAllPics: PropTypes.func.isRequired, 
-    toMyPics: PropTypes.func.isRequired, 
-    pics: PropTypes.arrayOf(PropTypes.object), 
-    newBook: PropTypes.func, 
-    pathname: PropTypes.shape, 
+    toLogin: PropTypes.func.isRequired,
+    toAllPics: PropTypes.func.isRequired,
+    toMyPics: PropTypes.func.isRequired,
+    pics: PropTypes.arrayOf(PropTypes.object),
+    newBook: PropTypes.func,
+    pathname: PropTypes.shape,
     user: PropTypes.object
 }
 

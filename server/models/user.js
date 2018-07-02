@@ -1,7 +1,7 @@
-//import '../dotenvconfig';
+
 import mongoose from 'mongoose'
 
-mongoose.connect(process.env.DB_CONN);
+mongoose.connect(process.env.LOCAL_DB_CONN);
 const userSchema = mongoose.Schema({
     username: String,
     password: String,

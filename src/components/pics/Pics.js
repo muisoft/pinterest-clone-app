@@ -65,7 +65,7 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
             }
     }
     return (
-        <Card style={{ padding: 4, width: 195 }} raise>
+        <Card style={{ padding: 4, width: 195, margin: 5 }} raise>
             {
                 renderCancel()
             }
@@ -109,7 +109,7 @@ Pics.PropTypes = {
     rate: PropTypes.number,
     label: PropTypes.string,
     onRate: PropTypes.func,
-    onDelete: PropTypes.func 
+    onDelete: PropTypes.func
 }
 export default Pics;
 

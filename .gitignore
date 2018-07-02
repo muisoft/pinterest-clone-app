@@ -3,6 +3,11 @@
 # dependencies
 /node_modules
 
+# server dependencies and files
+/server/node_modules
+/server/.env
+/server/build
+
 # testing
 /coverage
 

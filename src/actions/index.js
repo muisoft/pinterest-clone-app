@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as ActionType from './ActionType';
 
 export const isRated = (payload) => {
@@ -60,7 +61,7 @@ export const getValue = (value) => {
 export const showDialog = () => {
     return {
         type: ActionType.SHOW_DIALOG,
-        
+
     }
 }
 
@@ -84,25 +85,34 @@ export const getMyPics = () => {
 }
 
 export const getPics = () => {
-    return getData('/allpics', isSuccess);
+  return getData('/allpics', isSuccess);
 }
 export const onRate = (payload) => {
     return postData('/ratepics', payload, isSuccess);
 }
 
 export const getData = (url, done) => {
-    return (dispatch) => {
-        dispatch(isLoading(true));
-        fetchWrapper(url, { credentials: 'include'}, 200)
+  return (dispatch) => {
+      // dispatch(isLoading(true));
+        fetch(url,
+          {
+             headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json',
+               'Cache': 'no-cache'
+            },
+            credentials: 'same-origin'
+          })
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
-                dispatch(isLoading(false));
+              //  dispatch(isLoading(false));
                 return response;
             })
             .then((response) => response.json())
             .then((response) => {
+                console.log('Yewo: '+JSON.stringify(response));
                 dispatch(done(response));
             })
             .catch(() => dispatch(isError(true)))
@@ -110,7 +120,7 @@ export const getData = (url, done) => {
 }
 
 const postData = (url, payload, done) => {
-    
+
      return (dispatch) => {
        fetch(url, {
            method: 'POST',
@@ -124,13 +134,13 @@ const postData = (url, payload, done) => {
              if(!res.ok){
                  throw Error(res.statusText);
              }
-             dispatch(isLoading(false));
+            // dispatch(isLoading(false));
              return res;
          })
          .then(res => res.json())
          .then(res => {
              dispatch(done(res))
-            
+
         })
          .catch(() => dispatch(isError(true)));
    }

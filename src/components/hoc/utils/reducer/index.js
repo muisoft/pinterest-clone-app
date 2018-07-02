@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux';
-import { signin, signup, signout, onRate, resetAll, getPics, getMyPics, 
+import { signin, signup, signout, onRate, resetAll, getPics, getMyPics,
     deletePics, showDialog, addNewPics } from '../../../../actions';
 
 export const mapStateToProps = ({ pinterest }) => {
@@ -30,7 +30,7 @@ export const mapDispatchToProps = (dispatch) => {
         getAllPics: () => {
             dispatch(getPics())
         },
-        getMyPics: () => {
+        getMyPics1: () => {
             dispatch(getMyPics())
         },
         toMyPics: () => {

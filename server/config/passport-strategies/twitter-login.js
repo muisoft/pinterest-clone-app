@@ -1,11 +1,10 @@
 import { Strategy as TwitterStrategy } from 'passport-twitter';
-//import '../../dotenvconfig.js';
 import { User } from '../../models';
 
 export default new TwitterStrategy({
-    consumerKey: 'njyhtrghjkugfderfvbhm',//process.env.TWITTER_API_KEY,
-    consumerSecret: 'kkjhgfdsdfghjkl;lkjhvcfgh',//process.env.TWITTER_API_SECRET,
-    callbackURL: 'http://lobghgffddd'//process.env.CALLBACK_URL
+    consumerKey: process.env.TWITTER_API_KEY,
+    consumerSecret: process.env.TWITTER_API_SECRET,
+    callbackURL: process.env.CALLBACK_URL
 }, (accessToken, refreshToken, profile, done) =>{
     User.findOneAndUpdate(
         { twitterId: profile.id},

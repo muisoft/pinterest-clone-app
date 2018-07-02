@@ -26,8 +26,8 @@ const NewPicsDialog = ({ children, dialog, hide }) => {
 }
 NewPicsDialog.propTypes = {
     children: PropTypes.element.isRequired,
-    dialog: PropTypes.object.isRequired, 
-    hide: PropTypes.bool.isRequired 
+    dialog: PropTypes.object.isRequired,
+    hide: PropTypes.func.isRequired
 }
 
 export default withMainComponent(NewPicsDialog);

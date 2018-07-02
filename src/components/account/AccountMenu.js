@@ -43,10 +43,10 @@ const AccountMenu = ({ simplifiedMenu, pics, username, image, signout, resetAll,
 
 AccountMenu.propTypes = {
   simplifiedMenu: PropTypes.bool,
-  pics: PropTypes.arrayOf(PropTypes.object), 
-  username: PropTypes.string, 
-  image: PropTypes.string, 
-  signout: PropTypes.func.isRequired, 
+  pics: PropTypes.arrayOf(PropTypes.object),
+  username: PropTypes.string,
+  image: PropTypes.string,
+  signout: PropTypes.func.isRequired,
   handleSignout: PropTypes.func.isRequired
 };
 

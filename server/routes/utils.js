@@ -36,14 +36,15 @@ export const savePics = (req, res) => {
 
 export const allPics = (req, res) => {
   Pin.find({}, (err, pins) => {
-    res.json({pins: pins, user: req.user});
+    res.json({pins: pins});
   })
 }
 
 export const myPics = (req, res) => {
   let { _id } = req.user;
-
+  console.log('Yewo: '+JSON.stringify(req.user));
   Pin.find({ owner: _id }, (err, pins) => {
+    console.log('Yewo: '+JSON.stringify(pins));
     res.json(pins);
   })
 }
