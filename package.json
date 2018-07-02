@@ -33,10 +33,7 @@
     "watch-css": "npm run build-css && npm run build-css -- --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build:server": "cd server && npm run build",
-    "build:client": "npm run build-css && react-scripts build",
-    "build:all": "npm-run-all -p build:client build:server",
-    "heroku-postbuild": "yarn build:all",
+    "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
