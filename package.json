@@ -40,5 +40,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5002/"
+  "proxy": "http://localhost:5002/",
+  "engines": {
+    "node": "9.10.1"
+  }
 }
