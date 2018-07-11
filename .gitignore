@@ -5,7 +5,7 @@
 
 # server dependencies and files
 /server/node_modules
-/server/.env
+.env
 
 # testing
 /coverage

@@ -8,12 +8,12 @@ import reducers from './reducers';
 export const history = createHistory();
 const enhancers = []
 
-if( process.env.NODE_ENV === 'development') {
+//if( process.env.NODE_ENV === 'development') {
     const devToolsExtension = window.devToolsExtension
     if(typeof devToolsExtension === 'function'){
         enhancers.push(devToolsExtension())
     }
-}
+//}
 
 const middleware = [
    thunk,

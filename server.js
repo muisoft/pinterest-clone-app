@@ -9,14 +9,14 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import flash from 'connect-flash';
-import configurePassport  from './config/passport';
-import { router } from './routes/router';
+import configurePassport  from './server/config/passport';
+import { router } from './server/routes/router';
 
 
 
 const app = express();
 const MongoStore = connectMongo(session);
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 const dev = app.get('env') !== 'production';
 
 if(!dev){

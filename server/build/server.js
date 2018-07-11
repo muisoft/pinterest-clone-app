@@ -55,10 +55,10 @@ var dev = app.get('env') !== 'production';
 
 if (!dev) {
   app.use((0, _morgan2.default)('common'));
-  app.use(_express2.default.static(_path2.default.join(__dirname, '../../build')));
+  app.use(_express2.default.static(_path2.default.resolve(__dirname, 'build')));
   //The 'catch all' handler that route any route that is not match api routes to React index.html
-  app.get('/*', function (req, res) {
-    res.sendFile(_path2.default.join(__dirname, '../../build', 'index.html'));
+  app.get('*', function (req, res) {
+    res.sendFile(_path2.default.resolve(__dirname, 'build', 'index.html'));
   });
 }
 if (dev) {
@@ -82,7 +82,4 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 (0, _passport4.default)(_passport2.default);
 app.use(_router.router);
 
-var server = app.listen(PORT, (err) => {
-  if(err) throw err;
-  console.log('Server Connected');
-});
+var server = app.listen(PORT);

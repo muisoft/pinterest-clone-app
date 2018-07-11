@@ -11,7 +11,7 @@ var _models = require('../../models');
 exports.default = new _passportTwitter.Strategy({
     consumerKey: process.env.TWITTER_API_KEY,
     consumerSecret: process.env.TWITTER_API_SECRET,
-    callbackURL: '/twitter/auth/'//process.env.CALLBACK_URL
+    callbackURL: process.env.CALLBACK_URL
 }, function (accessToken, refreshToken, profile, done) {
     _models.User.findOneAndUpdate({ twitterId: profile.id }, { twitterId: profile.id, username: profile.username, password: profile.id }, { upsert: 'true' }).exec(function (err, user) {
         if (err) return done(err);
