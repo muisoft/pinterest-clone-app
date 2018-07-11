@@ -23,7 +23,7 @@ if(!dev){
  app.use(morgan('common'));
  app.use(express.static(path.resolve(__dirname, 'build')));
  //The 'catch all' handler that route any route that is not match api routes to React index.html
- app.get('*', (req, res) => {
+ app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
  })
 }
