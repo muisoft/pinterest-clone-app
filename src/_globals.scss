@@ -1,9 +1,5 @@
-@import '~material-design-icons/iconfont/material-icons.css';
 @import 'react-md/src/scss/react-md';
 
 // Variable overrides
-//$md-primary-color: $md-teal-500;
-//$md-secondary-color: $md-purple-a-400;
-$md-primary-color: $md-light-blue-500;
-$md-secondary-color: $md-light-blue-500;//$md-deep-orange-a-200;
-
+$md-primary-color: $md-teal-500;
+$md-secondary-color: $md-purple-a-400;

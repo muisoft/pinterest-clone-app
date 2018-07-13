@@ -1,16 +1,17 @@
-import express from 'express';
-import passport from 'passport';
-import { User } from '../models';
+const express = require('express');
+const passport = require('passport');
+const User = require('mongoose').model('User');
 
-import {
+//const signup = require('./utils/')
+const {
     signup,
     savePics, allPics,
     myPics,
     deletePics,
     ratePics
-} from './utils';
+} = require('./utils');
 
-export const router = express.Router();
+const router = express.Router();
 
 const redir = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3000/';
 
@@ -70,3 +71,5 @@ router.post('/deletepics', isLoggedIn, (req, res) => {
 router.post('/ratepics', isLoggedIn, (req, res) => {
   ratePics(req, res);
 });
+
+module.exports = router;

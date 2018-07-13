@@ -1,7 +1,6 @@
 
-import mongoose from 'mongoose'
+const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DB_CONN);
 const userSchema = mongoose.Schema({
     username: String,
     password: String,
@@ -10,4 +9,4 @@ const userSchema = mongoose.Schema({
     twitterId: { type: String, default: "" }
 })
 
-export let User = mongoose.model('User', userSchema, "user");
+module.exports = mongoose.model('User', userSchema, "user");

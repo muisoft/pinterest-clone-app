@@ -1,7 +1,5 @@
 
-import mongoose from 'mongoose';
-
-mongoose.connect(process.env.DB_CONN);
+const mongoose = require('mongoose');
 
 const pinSchema = mongoose.Schema({
     title: String,
@@ -10,4 +8,4 @@ const pinSchema = mongoose.Schema({
     ownerImage: String,
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
-export let Pin = mongoose.model('Pin', pinSchema, 'pin')
+module.exports= mongoose.model('Pin', pinSchema, 'pin')

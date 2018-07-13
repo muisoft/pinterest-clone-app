@@ -1,9 +1,9 @@
-import { Strategy as LocalStrategy } from 'passport-local';
-import { User } from '../models/user';
-import { isCorrectPassword, createHash } from '../routes/utils';
-import { LocalLogin, LocalSignup, TwitterLogin } from './passport-strategies';
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('mongoose').model('User');
 
-export default (passport) => {
+//import { LocalLogin, LocalSignup, TwitterLogin } from './passport-strategies';
+
+export.defaults = (passport) => {
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
@@ -13,7 +13,7 @@ export default (passport) => {
         });
     });
 
-    passport.use('local-signin', LocalLogin);
-    passport.use('local-signup', LocalSignup);
-    passport.use('twitter-signin', TwitterLogin);
+    require('./passport-strategies/local-signin')(passport);
+    require('./passport-strategies/local-signup')(passport);
+    require('./passport-strategies/twitter-signin')(passport);
 }
