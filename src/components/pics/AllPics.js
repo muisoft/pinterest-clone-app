@@ -10,13 +10,6 @@ class AllPics extends Component {
 
   componentDidMount = () => {
     this.props.renderAllPics();
-    axios({
-  method:'get',
-  url:'/allpics',
-  responseType:'json'
-})
-      .then(res => console.log(res.data))
-      .then(err => console.log(err));
   }
 
   render() {
@@ -29,7 +22,7 @@ class AllPics extends Component {
       onRate: ratePics,
       location: location
     }
-    if(pics.length === 0 && user.username){
+    if(!pics && user.username){
       return <p style={{margin: '50%'}}>Empty!!! You do not add pics yet</p>
     }
     if(location.pathname === '/'){

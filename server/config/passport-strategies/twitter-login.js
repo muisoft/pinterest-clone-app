@@ -1,8 +1,8 @@
-
+require('dotenv').config();
 const TwitterStrategy = require('passport-twitter').Strategy;
 const User = require('mongoose').model('User');
 
-export.defaults = (passport) => {
+module.exports = (passport) => {
       passport.use('twitter-login', new TwitterStrategy({
         consumerKey: process.env.TWITTER_API_KEY,
         consumerSecret: process.env.TWITTER_API_SECRET,
@@ -17,8 +17,8 @@ export.defaults = (passport) => {
             if(user){
                 return done(null, user);
             } else {
-                return done(null, false);
+                return done(null, false);    
             }
         })
-    })
+    }))
 }

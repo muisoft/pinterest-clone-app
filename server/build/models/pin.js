@@ -1,11 +1,12 @@
+'use strict';
 
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-const pinSchema = new mongoose.Schema({
+var PinSchema = new mongoose.Schema({
     title: String,
     thumbnail: String,
     rate: { type: Number, default: 0 },
     ownerImage: String,
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
-module.exports= mongoose.model('Pin', pinSchema, 'pin')
+module.exports = mongoose.model('Pin', PinSchema, 'pin');

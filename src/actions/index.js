@@ -112,7 +112,6 @@ export const getData = (url, done) => {
             })
             .then((response) => response.json())
             .then((response) => {
-                console.log('Yewo: '+JSON.stringify(response));
                 dispatch(done(response));
             })
             .catch(() => dispatch(isError(true)))
@@ -120,7 +119,6 @@ export const getData = (url, done) => {
 }
 
 const postData = (url, payload, done) => {
-
      return (dispatch) => {
        fetch(url, {
            method: 'POST',
@@ -140,7 +138,6 @@ const postData = (url, payload, done) => {
          .then(res => res.json())
          .then(res => {
              dispatch(done(res))
-
         })
          .catch(() => dispatch(isError(true)));
    }

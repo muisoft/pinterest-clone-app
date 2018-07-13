@@ -1,8 +1,8 @@
 const express = require('express');
 const passport = require('passport');
 const User = require('mongoose').model('User');
-
-//const signup = require('./utils/')
+const Pin = require('mongoose').model('Pin');
+//const { allBooks, myBooks, signup } = require('./utils');
 const {
     signup,
     savePics, allPics,
@@ -11,7 +11,7 @@ const {
     ratePics
 } = require('./utils');
 
-const router = express.Router();
+var router = express.Router();
 
 const redir = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3000/';
 
@@ -35,7 +35,7 @@ router.get('/auth/twitter', (req, res, next) => {
 router.get('/auth/twitter/callback',
       passport.authenticate('twitter-signin', { failureredirect: redir + 'account/login'}),
       (req, res) => {
-        res.redirect(redir + 'allpics')
+        res.redirect(redir + 'allbooks')
       })
 
 router.post('/signin', (req, res, next) => {
@@ -60,12 +60,13 @@ router.get('/allpics', isLoggedIn, (req, res) => {
   allPics(req, res);
 });
 
-router.get('/mypics', isLoggedIn, (req, res) => {
- myPics(req, res);
+router.get('/mypics', isLoggedIn, (req, res, next) => {
+  console.log('My Pics: '+ JSON.stringify(req.user._id));
+  myPics(req, res);
 });
 
 router.post('/deletepics', isLoggedIn, (req, res) => {
-  deletePics(req, res);
+   deletePics(req, res);
 });
 
 router.post('/ratepics', isLoggedIn, (req, res) => {

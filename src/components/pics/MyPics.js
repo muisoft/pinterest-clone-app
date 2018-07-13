@@ -25,7 +25,7 @@ class MyPics extends Component {
     }
     const styles = {
       container: {
-        width: 450,
+      //  width: 450,
         marginTop: 40
       },
       newButton: {
@@ -56,8 +56,8 @@ class MyPics extends Component {
 
 
                 <Masonry
-                 className="md-grid"
 
+                 className="md-grid"
                  options={masonryOptions}>
           {
             mypics.map(pic => {

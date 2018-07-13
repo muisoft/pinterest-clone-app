@@ -10,5 +10,5 @@ module.exports = (url) => {
   });
   //We are connected
   require('./user');
-  require('./book');
+  require('./pin');
 }

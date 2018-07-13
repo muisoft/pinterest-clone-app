@@ -10,11 +10,11 @@ export const createHash = (password) => {
   return bCrypt.hashSync(password, genSaltSync(10), null);
 }**/
 module.exports = {
-      savePics = (req, res) => {
-        let { id, title, thumbnail, owner } = req.body;
+      savePics(req, res) {
+        var { id, title, thumbnail, owner } = req.body;
 
-        Pin.findOne({ owner: id }, (err, p) => {
-          User.findOne({ _id: id }, (err, user) => {
+        Pin.findOne({ owner: req.body.id }, (err, p) => {
+          User.findOne({ _id: req.body.id }, (err, user) => {
             let image;
             if (user.thumbnail) {
               image = user.thumbnail;
@@ -34,22 +34,22 @@ module.exports = {
         })
       },
 
-      allPics = (req, res) => {
+      allPics(req, res){
+        console.log('Enter All Pics');
         Pin.find({}, (err, pins) => {
           res.json({pins: pins});
         })
       },
 
-      myPics = (req, res) => {
+      myPics(req, res){
         let { _id } = req.user;
-        console.log('Yewo: '+JSON.stringify(req.user));
         Pin.find({ owner: _id }, (err, pins) => {
-          console.log('Yewo: '+JSON.stringify(pins));
+          console.log('My Pics2: '+JSON.stringify(pins));
           res.json(pins);
         })
       },
 
-      signup = (req, res) => {
+      signup(req, res){
         let { username, email, password } = req.body;
 
         User.findOne({ username: username }, (err, user) => {
@@ -65,20 +65,20 @@ module.exports = {
         })
       },
 
-      deletePics = (req, res) => {
+      deletePics(req, res){
         let { id } = req.body;
 
         Pin.findOneAndRemove({ _id: id }, (pin) => {
           res.json({ success: true });
         });
       },
-      
-      ratePics = (req, res) => {
+
+      ratePics(req, res){
         let { id, rate } = req.body;
 
         Pin.findOneAndUpdate({ _id: id }, { rate: rate }, (pin) => {
           Pin.find({}, (err, pins) => {
-            res.json(pins);
+            res.json({pins: pins});
           })
         })
       }
