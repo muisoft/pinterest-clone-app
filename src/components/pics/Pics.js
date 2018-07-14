@@ -14,6 +14,13 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
             paddingRight: 5,
             marginTop: 5
         },
+        title: { fontSize: 16, wordWrap: 'break-word' },
+        avatar: { width: 30, height: 30 },
+        delete: { position: 'relative', top: -10, right: -75 },
+        thumbnail: { position: 'relative', top: 2 },
+        card: { padding: 4, width: 195, margin: 5 },
+        rate: { display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: -13 },
+        checkedIcon: {fontSize: 20}
     }
 
     const pics = {
@@ -31,7 +38,7 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
     const renderCancel = () => {
         if (label === 'Delete') {
             return (
-                <div style={{ position: 'relative', top: -10, right: -75 }}>
+                <div style={styles.delete}>
                     <Button
                         icon
                         tooltipLabel="Delete Pics"
@@ -56,35 +63,36 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
     const renderAvatar = () => {
             if(ownerImage.length > 2){
                 return (
-                     <Avatar src={ownerImage} style={{ width: 30, height: 30 }} />
+                     <Avatar src={ownerImage} style={styles.avatar} />
                 )
             } else {
               return (
-                <Avatar style={{ width: 30, height: 30 }}>{ownerImage[0]}</Avatar>
+                <Avatar style={styles.avatar}>{ownerImage[0]}</Avatar>
               )
             }
     }
+
     return (
-        <Card style={{ padding: 4, width: 195, margin: 5 }} raise>
+        <Card style={styles.card} raise>
             {
                 renderCancel()
             }
-            <div style={{ position: 'relative', top: 2 }}>
+            <div style={styles.thumbnail}>
                 <img src={thumbnail} onError={handleError} style={{ width: '100%' }} alt={title} />
             </div>
             <div style={styles.actions}>
-                <div style={{ ...styles.actions, ...styles.title }}><p id="title">{title}</p></div>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: -13 }}>
+                <div style={styles.actions}><p style={styles.title} id="title">{title}</p></div>
+                <div style={styles.rate}>
                     { renderAvatar() }
-                    <div style={{ marginRight: 7 }}>
+                    <div style={{ marginRight: 7}}>
                         <Checkbox
                             id={title}
                             name="rate"
-                            label={rate}
+                            label={<span style={{fontSize: 18}}>{rate}</span>}
                             value={title}
                             disabled={noRate || location.pathname === '/'? true : false}
-                            checkedIcon={<FontIcon primary iconClassName="fa fa-star" />}
-                            uncheckedIcon={<FontIcon iconClassName="fa fa-star" />}
+                            checkedIcon={<FontIcon primary style={styles.checkedIcon} iconClassName="fa fa-star" />}
+                            uncheckedIcon={<FontIcon style={styles.checkedIcon} iconClassName="fa fa-star" />}
                             onChange={handleRate}
                         />
                     </div>

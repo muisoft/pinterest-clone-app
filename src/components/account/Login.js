@@ -19,10 +19,13 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
        },
        optionSignin: {
          paddingRight: 5
+       },
+       input: {
+         fontSize: 16
        }
    }
     const login_twitter_url = process.env.NODE_ENV === "production"?
-      "/auth/twitter":"http://localhost:5000/auth/twitter";
+      "/auth/twitter":"http://localhost:5002/auth/twitter";
     return (
         <form className="login-form" onSubmit={onSignin}>
             <div className="login-form">
@@ -30,7 +33,6 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
                     <Button
                         key="facebook"
                         raised
-
                         className="twitter-button">
                         <div className="small-device btn">
                             <FontIcon iconClassName="fa fa-twitter" className="social-icon" /><a href={login_twitter_url}>Login with Twitter</a>
@@ -47,13 +49,16 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
                             name="username"
                             placeholder="Username"
                             block paddedBlock
+                            inputStyle={styles.input}
                             onChange={handleChange} />
                         <Divider />
                         <TextField
                             id="password"
                             name="password"
+                            type="password"
                             placeholder="Password"
                             block paddedBlock
+                            inputStyle={styles.input}
                             onChange={handleChange} />
                         <Divider />
                     </div>

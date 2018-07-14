@@ -5,6 +5,11 @@ import { Button, TextField, Card, FontIcon, Divider } from 'react-md';
 import { withMainComponent } from '../hoc';
 
 const Signup = ({ onSignup, handleChange }) => {
+   const styles = {
+     input: {
+       fontSize: 16
+     }
+   }
     return (
         <form className="login-form" onSubmit={onSignup}>
                     <div className="login-form">
@@ -16,6 +21,7 @@ const Signup = ({ onSignup, handleChange }) => {
                                     type="text"
                                     placeholder="Username"
                                     block paddedBlock
+                                    inputStyle={styles.input}
                                     onChange={handleChange} />
                                 <Divider />
                                 <TextField
@@ -24,6 +30,7 @@ const Signup = ({ onSignup, handleChange }) => {
                                     type="email"
                                     placeholder="Email"
                                     block paddedBlock
+                                    inputStyle={styles.input}
                                     onChange={handleChange} />
                                 <Divider />
                                 <TextField
@@ -32,6 +39,7 @@ const Signup = ({ onSignup, handleChange }) => {
                                     type="password"
                                     placeholder="Password"
                                     block paddedBlock
+                                    inputStyle={styles.input}  
                                     onChange={handleChange} />
                                 <Divider />
                             </div>

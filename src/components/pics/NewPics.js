@@ -6,54 +6,63 @@ import { DialogContainer, TextField, Divider, Card, Button, Snackbar } from 'rea
 import { withMainComponent } from '../hoc';
 
 const NewPics = ({ saveNewPics, cancelNewPics, handleChange}) => {
-    const styles = {
-        save: { marginTop: 15, marginRight: 15 },
-        cancel: { marginTop: 15 },
-        buttonWrapper: { float: 'right' },
-        section: { padding: 20 },
-        card: { height: 260, width: 500 },
-        header: { alignSelf: 'center' }
-    }
-    return (
-        <div>
-            <div className="cards md-cell--8" style={styles.header}>
-                <h2>Add New Book</h2>
-            </div>
-            <div className="cards md-cell--center md-cell--12" >
-                <form>
-                    <section style={styles.section}>
-                        <TextField
-                            id="title"
-                            name="title"
-                            placeholder="Pic's title"
-                            block
-                            paddedBlock
-                            onChange={handleChange}
-                        />
-                        <Divider />
-                        <TextField
-                            id="thumbnail"
-                            name="thumbnail"
-                            placeholder="Pic's url"
-                            block
-                            paddedBlock
-                            onChange={handleChange}
-                        />
-                        <Divider />
-                        <div style={styles.buttonsWrapper}>
-                            <Button id="save" onClick={saveNewPics} raised primary style={styles.save} >Save</Button>
-                            <Button id="cancel" onClick={cancelNewPics} raised primary style={styles.cancel}>Cancel</Button>
-                        </div>
-                    </section>
-                </form>
-            </div>
-        </div>
-    );
+  const styles = {
+      save: { marginTop: 15, marginRight: 15 },
+      cancel: { marginTop: 15 },
+      buttonWrapper: { float: 'right' },
+      section: { padding: 20, paddingTop: 2 },
+      card: { height: 260, width: 500 },
+      header: { textAlign: 'center'},
+      largeInput: {
+        height: 46,
+        width: 400,
+        padding: '10px 16px',
+        fontSize: 18,
+        lineHeight: 1.3333333,
+        border: '2px solid #ccc',
+        borderRadius: 6,
+        backgroundImage: 'none',
+        boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, .075)'
+}
+  }
+  return (
+      <div className="cards" style={{width: 400, height: 250}}>
+          <div>
+              <h2>Add New Pic</h2>
+          </div>
+          <div>
+              <form>
+                  <section>
+                      <TextField
+                          id="title"
+                          name="title"
+                          placeholder="Title"
+                          block
+                          inputStyle={styles.largeInput}
+                          onChange={handleChange}
+                      />
+                      <TextField
+                          id="thumbnai"
+                          name="thumbnail"
+                          placeholder="Image link"
+                          block
+                          inputStyle={styles.largeInput}
+                          onChange={handleChange}
+                      />
+                      <div style={styles.buttonWrapper}>
+                          <Button id="save" onClick={saveNewPics} raised primary style={styles.save} >Save</Button>
+                          <Button id="cancel" onClick={cancelNewPics} raised primary style={styles.cancel}>Cancel</Button>
+                      </div>
+                  </section>
+              </form>
+          </div>
+      </div>
+  );
 }
 
 NewPics.PropTypes = {
-    saveNewPics: PropTypes.func.isRequired, 
-    cancelNewPics: PropTypes.func.isRequired, 
+    saveNewPics: PropTypes.func.isRequired,
+    cancelNewPics: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired
 }
 
