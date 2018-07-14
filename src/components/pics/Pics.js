@@ -25,7 +25,7 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
     }
     const handleError = (e) => {
        e.target.src = process.env.NODE_ENV === 'production' ?
-           'https://placeholdit.imgix.net/~text?txtsize=40&txt=pinit&w=200&h=200' :
+           'https://placeholdit.imgix.net/~text?txtsize=40&txt=piccisy&w=200&h=200' :
            '/pics/20.jpg';
     }
     const renderCancel = () => {

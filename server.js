@@ -26,18 +26,7 @@ app.use(session({
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
-// Check if we are in Production
-if(!dev){
-  app.disable('x-powered-by');
-  app.use(compression());
-  app.use(morgan('common'));
 
-  app.use(express.static(path.resolve(__dirname, 'build')));
-
-  app.get('*', function(req, res) {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-  });
-}
  //Also check if we are not in production
 if(dev){
   app.use(morgan('dev'));
@@ -51,6 +40,18 @@ require('./server/config/passport')(passport);
 const router = require('./server/routes/router');
 app.use(router);
 
+// Check if we are in Production
+if(!dev){
+  app.disable('x-powered-by');
+  app.use(compression());
+  app.use(morgan('common'));
+
+  app.use(express.static(path.resolve(__dirname, 'build')));
+
+  app.get('/*', function(req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  });
+}
 const server = createServer(app);
 server.listen(PORT, err => {
   if(err) throw err;

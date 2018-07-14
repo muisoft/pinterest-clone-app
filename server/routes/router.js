@@ -56,7 +56,7 @@ router.post('/savepics', isLoggedIn, (req, res) => {
   savePics(req, res);
 });
 
-router.get('/allpics', isLoggedIn, (req, res) => {
+router.get('/allpics', (req, res) => {
   allPics(req, res);
 });
 

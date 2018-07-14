@@ -22,7 +22,6 @@ class App extends Component {
                                 <Route path="/account/:type" location={location} component={Account} />
                                 <ProtectedRoute path="/allpics" location={location} component={AllPics} />
                                 <ProtectedRoute path="/mypics" location={location} component={MyPics} />
-                            
                             </Switch>
                         </div>
                     )} />
