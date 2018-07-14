@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const User = require('mongoose').model('User');
 const Pin = require('mongoose').model('Pin');
-//const { allBooks, myBooks, signup } = require('./utils');
+
 const {
     signup,
     savePics, allPics,
@@ -61,7 +61,6 @@ router.get('/allpics', isLoggedIn, (req, res) => {
 });
 
 router.get('/mypics', isLoggedIn, (req, res, next) => {
-  console.log('My Pics: '+ JSON.stringify(req.user._id));
   myPics(req, res);
 });
 

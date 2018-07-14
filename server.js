@@ -26,7 +26,7 @@ app.use(session({
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
-
+// Check if we are in Production
 if(!dev){
   app.disable('x-powered-by');
   app.use(compression());
@@ -34,11 +34,11 @@ if(!dev){
 
   app.use(express.static(path.resolve(__dirname, 'build')));
 
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  })
+  app.get('*', function(req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  });
 }
-
+ //Also check if we are not in production
 if(dev){
   app.use(morgan('dev'));
 }

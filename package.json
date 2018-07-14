@@ -70,6 +70,7 @@
     "start:prod": "node build/server.js"
   },
   "proxy": "http://localhost:5002/",
+  "homepage": "http://localhost:5002/",
   "engines": {
     "node": "9.10.1"
   }

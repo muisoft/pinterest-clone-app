@@ -35,7 +35,6 @@ module.exports = {
       },
 
       allPics(req, res){
-        console.log('Enter All Pics');
         Pin.find({}, (err, pins) => {
           res.json({pins: pins});
         })
@@ -44,7 +43,6 @@ module.exports = {
       myPics(req, res){
         let { _id } = req.user;
         Pin.find({ owner: _id }, (err, pins) => {
-          console.log('My Pics2: '+JSON.stringify(pins));
           res.json(pins);
         })
       },
@@ -67,7 +65,6 @@ module.exports = {
 
       deletePics(req, res){
         let { id } = req.body;
-
         Pin.findOneAndRemove({ _id: id }, (pin) => {
           res.json({ success: true });
         });

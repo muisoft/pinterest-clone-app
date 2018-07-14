@@ -1,4 +1,4 @@
-import axios from 'axios';
+//import axios from 'axios';
 import * as ActionType from './ActionType';
 
 export const isRated = (payload) => {
@@ -97,9 +97,9 @@ export const getData = (url, done) => {
         fetch(url,
           {
              headers: {
-               'Accept': 'application/json',
+              // 'Accept': 'application/json',
                'Content-Type': 'application/json',
-               'Cache': 'no-cache'
+               //'Cache': 'no-cache'
             },
             credentials: 'same-origin'
           })
@@ -114,7 +114,7 @@ export const getData = (url, done) => {
             .then((response) => {
                 dispatch(done(response));
             })
-            .catch(() => dispatch(isError(true)))
+            .catch(() => dispatch(isError(true)));
     }
 }
 
@@ -142,14 +142,3 @@ const postData = (url, payload, done) => {
          .catch(() => dispatch(isError(true)));
    }
 }
-
-const fetchWrapper = (url, options, timeout) => {
-    return new Promise((resolve, reject) => {
-      fetch(url, options).then(resolve).catch(reject);
-
-      if (timeout) {
-        const e = new Error("Connection timed out");
-        setTimeout(reject, timeout, e);
-      }
-    });
-  }
