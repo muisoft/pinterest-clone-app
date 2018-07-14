@@ -12,7 +12,7 @@ const passport = require( 'passport');
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 5002);
 
-require('./server/models')(process.env.DB_CONN);
+require('./server/models')('mongodb://localhost:27017/pinterestclone');
 
 const app = express();
 const dev = app.get('env') !== 'production';
