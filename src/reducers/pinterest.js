@@ -21,7 +21,7 @@ export const pinterest = (state = initialState, action) => {
             return {
                 ...state,
                 pics: action.payload.pins,
-                user: action.payload.user ? action.payload.user : null
+                user: action.payload.user ? action.payload.user : {}
             }
         case ActionType.ON_SIGNIN:
             return {

@@ -44,7 +44,7 @@ export const isSignin = (user) => {
 }
 export const resetAll = () => {
     return {
-        type: ActionType.SIGN_OUT,
+        type: ActionType.SIGN_OUT
     }
 }
 export const isNotSave = () => {

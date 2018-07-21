@@ -25,7 +25,7 @@ const isLoggedIn = (req, res, next) => {
 
 router.get('/signout', (req, res) => {
     req.logout();
-    res.json({ success: true});
+    res.redirect(redir + 'account/login');
 })
 
 router.get('/auth/twitter', (req, res, next) => {

@@ -8,7 +8,7 @@ module.exports = (passport) => {
         consumerSecret: process.env.TWITTER_API_SECRET,
         callbackURL: '/auth/twitter/callback'
       }, (accessToken, refreshToken, profile, done) =>{
-        User.findOneAndUpdate(
+        User.findOneAndUpdate( 
             { twitterId: profile.id},
             { twitterId: profile.id, username: profile.username, password: profile.id},
             { upsert: 'true'}

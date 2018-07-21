@@ -8,7 +8,7 @@ module.exports = function(passport){
       User.findOne({username: username, password: password}, (err, user) => {
         if(err) return done(err);
         if(!user) {
-          return done(null, false, req.flash('message', 'User not found'));
+          return done(null, false);
         }
        //if(!user.isCorrectPassword(password)){
          // return done(null, false, req.flash('message', 'Wrong password'));
