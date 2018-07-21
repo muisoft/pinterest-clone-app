@@ -36,7 +36,7 @@ module.exports = {
 
       allPics(req, res){
         Pin.find({}, (err, pins) => {
-          res.json({pins: pins});
+          res.json({pins: pins, user: req.user});
         })
       },
 

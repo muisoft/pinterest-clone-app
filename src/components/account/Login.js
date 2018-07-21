@@ -25,7 +25,7 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
        }
    }
     const login_twitter_url = process.env.NODE_ENV === "production"?
-      "/auth/twitter":"http://localhost:5002/auth/twitter";
+      "/auth/twitter":"http://localhost:5000/auth/twitter";
     return (
         <form className="login-form" onSubmit={onSignin}>
             <div className="login-form">

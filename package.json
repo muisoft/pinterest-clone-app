@@ -69,8 +69,8 @@
     "build:server2": "babel server.js --out-dir server/build",
     "start:prod": "node build/server.js"
   },
-  "proxy": "http://localhost:5002/",
-  "homepage": "https://piccisy.herokuapp.com/",
+  "proxy": "http://localhost:5000/",
+
   "engines": {
     "node": "9.10.1"
   }

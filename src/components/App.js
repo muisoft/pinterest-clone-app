@@ -20,7 +20,7 @@ class App extends Component {
                             <Switch key={location.key}>
                                 <Route exact path="/" location={location} component={AllPics}/>
                                 <Route path="/account/:type" location={location} component={Account} />
-                                <ProtectedRoute path="/allpics" location={location} component={AllPics} />
+                                <Route path="/allpics" location={location} component={AllPics} />
                                 <ProtectedRoute path="/mypics" location={location} component={MyPics} />
                             </Switch>
                         </div>
