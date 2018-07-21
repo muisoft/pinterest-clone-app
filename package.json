@@ -70,7 +70,7 @@
     "start:prod": "node build/server.js"
   },
   "proxy": "http://localhost:5000/",
-  
+  "homepage": "https://piccisy.herokuapp.com/",
   "engines": {
     "node": "9.10.1"
   }
