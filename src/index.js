@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import App from './components/App';
 //import registerServiceWorker from './registerServiceWorker';
 import WebFontLoader from 'webfontloader';
-
+ 
 import store, { history } from './store';
 
 import 'font-awesome/css/font-awesome.min.css';

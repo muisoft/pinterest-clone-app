@@ -13,7 +13,7 @@ export const withMainComponent = function (ChildComponent) {
                 <ChildComponent {...childProps} />
             );
         }
-    }
+    } 
     return connect(mapStateToProps, mapDispatchToProps)(WithMainComponent);
 }
 export default withMainComponent;

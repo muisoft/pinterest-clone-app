@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux';
 import {
     signin, signup, signout, onRate, resetAll, getPics, getMyPics,
-    deletePics, showDialog, addNewPics
+    deletePics, showDialog, addNewPics 
 } from '../../../../actions';
 
 export const mapStateToProps = ({ pinterest }) => {

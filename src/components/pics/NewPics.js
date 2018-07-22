@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { DialogContainer, TextField, Divider, Card, Button, Snackbar } from 'react-md';
 
 import { withMainComponent } from '../hoc';
-
+ 
 const NewPics = ({ saveNewPics, cancelNewPics, handleChange }) => {
     const styles = {
         save: { marginTop: 15, marginRight: 15 },

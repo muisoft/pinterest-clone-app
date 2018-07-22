@@ -1,4 +1,3 @@
-
 import * as ActionType from './ActionType';
 
 export const isRated = (payload) => {

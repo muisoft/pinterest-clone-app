@@ -14,6 +14,7 @@ const Login = ({ onSignin, partialState, user, handleChange, location, history }
         optionSignin: { paddingRight: 5 },
         input: { fontSize: 16 }
     }
+    
     const github_login_url = process.env.NODE_ENV === "production" ?
         "/auth/github" : "http://localhost:5000/auth/github";
     

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Button, CardActions, Avatar, FontIcon, Checkbox } from 'react-md';
 
 import { withMainComponent } from '../hoc';
-
+ 
 const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _id,
     owner, remove, request, isDisabled, rate, label, onRate, onDelete }) => {
     const styles = {

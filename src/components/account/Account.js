@@ -13,6 +13,7 @@ const Account = ({ match, user, location}) => {
     if (user.username) {
         return <Redirect to={{ pathname: "/allpics" }} />
     }
+    
     return (
         <div className="md-grid ">
 

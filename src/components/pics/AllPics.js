@@ -10,7 +10,7 @@ class AllPics extends Component {
   componentDidMount = () => {
     this.props.renderAllPics();
   }
-
+ 
   render() {
     let { location, user, pics, ratePics } = this.props;
     let label = '';

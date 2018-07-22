@@ -13,6 +13,7 @@ import {
 import { withMainComponent } from '../hoc';
 
 const AccountMenu = ({ simplifiedMenu, pics, username, image, signout, resetAll, handleSignout }) => {
+  
   return (
     <DropdownMenu
       id='account-menu'

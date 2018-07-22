@@ -7,7 +7,7 @@ import { withMainComponent } from '../hoc';
 const NewPicsDialog = ({ children, dialog, hide }) => {
     let { visible, initialFocus, focusOnMount, containFocus } = dialog;
     return (
-        <DialogContainer
+        <DialogContainer 
             id="new-pics-dialog"
             aria-describedby="speed-boost-description"
             visible={visible}

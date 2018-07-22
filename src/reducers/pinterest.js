@@ -15,7 +15,7 @@ const initialState = {
     },
     message: {}
 }
-
+ 
 export const pinterest = (state = initialState, action) => {
     switch (action.type) {
         case ActionType.ON_SUCCESS:

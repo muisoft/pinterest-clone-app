@@ -4,7 +4,7 @@ export const actionsWrapper = (props) => {
     return {
         renderAllPics: () => {
             props.getAllPics();
-        },
+        }, 
         renderMyPics: () => {
             props.getMyPics1();
         },

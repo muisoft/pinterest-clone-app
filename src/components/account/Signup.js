@@ -56,7 +56,7 @@ const Signup = ({ onSignup, handleChange }) => {
 
 }
 
-Signup.PropTypes = {
+Signup.PropTypes = { 
     onSignup: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired
 }

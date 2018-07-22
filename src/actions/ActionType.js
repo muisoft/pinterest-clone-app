@@ -11,7 +11,6 @@ export const SIGN_OUT = 'SIGN_OUT';
 export const ON_SIGNIN = 'ON_SIGNIN';
 
 export const GET_MY_PICS = 'GET_MY_PICS';
-
 export const SHOW_DIALOG = 'SHOW_DIALOG';
 
 export const ON_RATED = 'ON_RATED';

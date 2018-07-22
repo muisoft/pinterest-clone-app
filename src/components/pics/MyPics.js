@@ -8,7 +8,7 @@ import { withMainComponent } from '../hoc';
 import NewPics from './NewPics';
 import Pics from './Pics';
 import NewPicsDialog from './NewPicsDialog';
-
+ 
 class MyPics extends Component {
   componentDidMount = () => {
     this.props.renderMyPics();
