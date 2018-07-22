@@ -47,9 +47,10 @@ const Login = ({ onSignin, partialState, gotoTwitter, onGithubSignin, user, hand
                         key="github"
                         raised
                         className="github-button"
-                        href={login_github_url}>
+                        >
                         <div className="small-device btn">
-                            <FontIcon iconClassName="fa fa-github" className="social-icon" />Login with Github
+                            <FontIcon iconClassName="fa fa-github" className="social-icon" />
+                            <a rel="noopener noreferrer" href={login_github_url}>Login with Github</a>
                         </div>
                     </Button>
                 </div>
