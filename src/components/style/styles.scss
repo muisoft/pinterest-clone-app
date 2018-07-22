@@ -60,16 +60,10 @@ a {
 }
 
 .login-wrapper {
-  //// display: flex;
-  // flex-direction:  row;
-   //align-items: center;
-  // justify-content: center;
   position: absolute;
- 
- top: -360px;
+  top: -360px;
   left: 25%;
-   height: 300px;
-     
+  height: 300px;  
 }
 
 .message {
@@ -101,8 +95,7 @@ a {
       width: 260px;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      
+      align-items: center; 
       justify-content: center; 
       padding: 10px;
     }
@@ -120,12 +113,11 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    
+    margin: 0;   
 }
 
 .card_actions {
-     display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
@@ -134,19 +126,8 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
- 
 }
-/**.cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    
-    padding-top: 3%;
-    //margin-left: auto;
-    //margin-right: auto; 
-}**/
+
 .cards {
     display: flex;
     flex-direction: row;
@@ -157,7 +138,6 @@ a {
 }
 .card {
     min-width: 300px;
-    
     height: auto;
     margin: 7px;
 }
@@ -171,21 +151,8 @@ a {
   @extend .card;
   min-width: 150px;
   max-width: 150px;
-  
-  
   margin: auto;
   padding: 5px;
-}
-#masonry-layout {
-  margin: 5px auto;
-  
-}
-.gallery {
-  display: grid;
-  grid-gap: 10px;
-}
-container {
-  
 }
 
 @media screen and (max-width: 640px) {
@@ -204,22 +171,10 @@ container {
   margin-right: 5px; 
   color: #fff 
 }
-.facebook-button {
-  @extend .social-button;
-  background-color: royalblue;
-}
-.twitter-button {
-  @extend .social-button;
-  background-color: #55acee;
 
-}
-
-  .masonry-grid {
-  position: relative;
-}
-.masonry-grid .grid-item {
-  position: absolute;
-  transition: top 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955), left 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+.github-button {
+  @extend .social-button;
+  background-color: #444444;
 }
 
 @media (min-width: 360px) and (max-width: 640px){

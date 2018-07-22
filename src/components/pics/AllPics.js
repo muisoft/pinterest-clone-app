@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-//import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Masonry from 'react-masonry-component';
-import { withResponsive, withMainComponent }  from '../hoc';
+import { withMainComponent } from '../hoc';
 import Pics from './Pics';
-import axios from 'axios';
+
 class AllPics extends Component {
 
   componentDidMount = () => {
@@ -13,7 +12,7 @@ class AllPics extends Component {
   }
 
   render() {
-    let { location, user, pics, columnsCount, ratePics, width } = this.props;
+    let { location, user, pics, ratePics } = this.props;
     let label = '';
     let isDisabled = false;
     let otherProps = {
@@ -22,46 +21,41 @@ class AllPics extends Component {
       onRate: ratePics,
       location: location
     }
-    if(!pics && user.username){
-      return <p style={{margin: '50%'}}>Empty!!! You do not add pics yet</p>
+    if (!pics && user.username) {
+      return <p style={{ margin: '50%' }}>Empty!!! You do not add pics yet</p>
     }
-    if(location.pathname === '/'){
+    if (location.pathname === '/') {
       isDisabled = true;
-   }
-   const masonryOptions = {
-            // transitionDuration: '0.6s',
-            // itemSelector: '.grid-item',
-             columnWidth: 200,
-             gutter: 5,
-             fitWidth: true
-            // isOriginLeft: false
-         };
+    }
+    const masonryOptions = {
+      transitionDuration: '0.6s',
+      columnWidth: 200,
+      gutter: 5,
+      fitWidth: true
+    };
 
-   const styles = {
+    const styles = {
       container: {
-        //width: 200,
         marginTop: 60
       }
     }
     return (
-
-        <Masonry
-         className="md-grid"
-         style={styles.container}
-         options={masonryOptions}>
-          {
-            pics.map(pic => {
-              let props = { ...otherProps, ...pic }
-              return (
-                <Pics
-                  key={pic._id}
-                  {...props}
-                />
-              )
-            })
-          }
-        </Masonry>
-
+      <Masonry
+        className="md-grid"
+        style={styles.container}
+        options={masonryOptions}>
+        {
+          pics.map(pic => {
+            let props = { ...otherProps, ...pic }
+            return (
+              <Pics
+                key={pic._id}
+                {...props}
+              />
+            )
+          })
+        }
+      </Masonry>
     );
   }
 }
@@ -69,16 +63,7 @@ class AllPics extends Component {
 AllPics.PropTypes = {
   user: PropTypes.object,
   pics: PropTypes.arrayOf(PropTypes.object),
-  columnsCount: PropTypes.number,
-  ratePics: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired
+  ratePics: PropTypes.func.isRequired
 }
 
-export default withMainComponent(withResponsive(AllPics));
-
-
-
-/**
-  <div className="md-grid" style={styles.container}>
-  <Masonry columnsCount={columnsCount} gutter="5px">
-**/
+export default withMainComponent(AllPics);

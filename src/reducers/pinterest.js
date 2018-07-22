@@ -1,4 +1,5 @@
 import * as ActionType from '../actions/ActionType';
+
 const initialState = {
     pics: [],
     mypics: [],
@@ -33,7 +34,6 @@ export const pinterest = (state = initialState, action) => {
                 ...state,
                 mypics: action.payload
             }
-
         case ActionType.ON_ERROR:
             return {
                 ...state,

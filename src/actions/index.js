@@ -1,4 +1,4 @@
-//import axios from 'axios';
+
 import * as ActionType from './ActionType';
 
 export const isRated = (payload) => {
@@ -71,9 +71,6 @@ export const signup = (user) => {
 export const signin = (user) => {
     return postData('/signin', user, isSignin);
 }
-export const githubSignin = () => {
-    return getData('http://localhost:5000/auth/github', isSignin);
-}
 export const signout = () => {
     return getData('/signout', resetAll);
 }
@@ -86,7 +83,6 @@ export const deletePics = (book) => {
 export const getMyPics = () => {
     return getData('/mypics', isMyPics);
 }
-
 export const getPics = () => {
   return getData('/allpics', isSuccess);
 }
@@ -100,9 +96,7 @@ export const getData = (url, done) => {
         fetch(url,
           {
              headers: {
-              // 'Accept': 'application/json',
-               'Content-Type': 'application/json',
-               //'Cache': 'no-cache'
+               'Content-Type': 'application/json'
             },
             credentials: 'same-origin'
           })

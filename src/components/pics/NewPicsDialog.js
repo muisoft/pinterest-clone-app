@@ -9,7 +9,7 @@ const NewPicsDialog = ({ children, dialog, hide }) => {
     return (
         <DialogContainer
             id="new-pics-dialog"
-             aria-describedby="speed-boost-description"
+            aria-describedby="speed-boost-description"
             visible={visible}
             onHide={hide}
             initialFocus={initialFocus}

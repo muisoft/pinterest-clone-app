@@ -4,17 +4,9 @@ export const actionsWrapper = (props) => {
     return {
         renderAllPics: () => {
             props.getAllPics();
-
-           // if (props.user.username) {
-               // props.login(props.user);
-           // }
         },
         renderMyPics: () => {
             props.getMyPics1();
-              console.log('MY PICS');
-           // if (props.user.username) {
-               // props.login(props.user);
-           // }
         },
         ratePics: (payload) => {
             props.onRate(payload);
@@ -44,7 +36,6 @@ export const actionsWrapper = (props) => {
         deletePics: (data) => {
             props.removePics({ id: data.id });
             alert('Successfully deleted');
-            //props.login(props.user);
             props.toMyPics();
         },
         handleSignout: () => {
@@ -55,10 +46,6 @@ export const actionsWrapper = (props) => {
         onSignin: (e) => {
             props.login(props.partialState);
             e.preventDefault();
-        },
-        onGithubSignin: (e) => {
-           props.githubSignin();
-           e.preventDefault();
         },
         onSignup: (e) => {
             e.preventDefault();

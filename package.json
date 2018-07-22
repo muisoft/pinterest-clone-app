@@ -1,6 +1,7 @@
 {
   "name": "fcc-react-pinterest-clone",
   "version": "0.1.0",
+  "author": "Muideen Adewale",
   "private": true,
   "dependencies": {
     "axios": "^0.9.1",
@@ -55,16 +56,10 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
-    "server-build": "npm run build:server1 && npm run build:server2 && npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "start:server": "nodemon -r dotenv/config -r babel-register server.js",
-    "build:server1": "babel server --ignore node_modules,build --out-dir server/build",
-    "build:server2": "babel server.js --out-dir server/build",
-    "start:prod": "node build/server.js"
+    "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000/",
-  "homepage": "https://piccisy.herokuapp.com/",
   "engines": {
     "node": "9.10.1"
   }

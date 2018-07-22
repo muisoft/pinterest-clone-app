@@ -6,8 +6,8 @@ import { actionsWrapper } from './utils/actionsWrapper';
 
 export const withMainComponent = function (ChildComponent) {
     class WithMainComponent extends Component {
-           render(){
-            let actionsProps = actionsWrapper({...this.props});   
+        render() {
+            let actionsProps = actionsWrapper({ ...this.props });
             let childProps = { ...this.props, ...actionsProps };
             return (
                 <ChildComponent {...childProps} />

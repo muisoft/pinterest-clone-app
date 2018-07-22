@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button,
-  Avatar,
-  FontIcon,
-  AccessibleFakeButton,
-  IconSeparator,
-  DropdownMenu,
+    Button,
+    Avatar,
+    FontIcon,
+    AccessibleFakeButton,
+    IconSeparator,
+    DropdownMenu,
 } from 'react-md';
 
 import { AccountMenu } from '../account';
-import  { withMainComponent }  from '../hoc';
+import { withMainComponent } from '../hoc';
 
 const ToolbarActions = ({ toLogin, toAllPics, toMyPics, pics, newBook, pathname, user }) => {
     const actions = () => {
-       if (user.username ) {
+        if (user.username) {
             return (
                 <div className="md-grid">
                     <Button flat style={{ marginTop: 6 }} onClick={toAllPics}>All Pics</Button>
@@ -25,7 +25,7 @@ const ToolbarActions = ({ toLogin, toAllPics, toMyPics, pics, newBook, pathname,
                         image={user.thumbnail} />
                 </div>
             )
-      } else {
+        } else {
             return (
                 <div className="md-grid" >
                     <Button icon onClick={toLogin}>account_circle</Button>
@@ -50,4 +50,4 @@ ToolbarActions.PropTypes = {
     user: PropTypes.object
 }
 
-export default  withMainComponent(ToolbarActions);
+export default withMainComponent(ToolbarActions);

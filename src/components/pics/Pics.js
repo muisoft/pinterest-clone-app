@@ -4,7 +4,8 @@ import { Card, Button, CardActions, Avatar, FontIcon, Checkbox } from 'react-md'
 
 import { withMainComponent } from '../hoc';
 
-const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _id, owner, remove, request, isDisabled, rate, label, onRate, onDelete }) => {
+const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _id,
+    owner, remove, request, isDisabled, rate, label, onRate, onDelete }) => {
     const styles = {
         actions: {
             display: 'flex',
@@ -20,7 +21,7 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
         thumbnail: { position: 'relative', top: 2 },
         card: { padding: 4, width: 195, margin: 5 },
         rate: { display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: -13 },
-        checkedIcon: {fontSize: 20}
+        checkedIcon: { fontSize: 20 }
     }
 
     const pics = {
@@ -31,9 +32,9 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
         to: user
     }
     const handleError = (e) => {
-       e.target.src = process.env.NODE_ENV === 'production' ?
-           'https://placeholdit.imgix.net/~text?txtsize=40&txt=piccisy&w=200&h=200' :
-           '/pics/20.jpg';
+        e.target.src = process.env.NODE_ENV === 'production' ?
+            'https://placeholdit.imgix.net/~text?txtsize=40&txt=piccisy&w=200&h=200' :
+            '/pics/20.jpg';
     }
     const renderCancel = () => {
         if (label === 'Delete') {
@@ -61,15 +62,15 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
         }
     }
     const renderAvatar = () => {
-            if(ownerImage.length > 2){
-                return (
-                     <Avatar src={ownerImage} style={styles.avatar} />
-                )
-            } else {
-              return (
+        if (ownerImage.length > 2) {
+            return (
+                <Avatar src={ownerImage} style={styles.avatar} />
+            )
+        } else {
+            return (
                 <Avatar style={styles.avatar}>{ownerImage[0]}</Avatar>
-              )
-            }
+            )
+        }
     }
 
     return (
@@ -83,14 +84,14 @@ const Pics = ({ location, noRate, mypics, title, thumbnail, user, ownerImage, _i
             <div style={styles.actions}>
                 <div style={styles.actions}><p style={styles.title} id="title">{title}</p></div>
                 <div style={styles.rate}>
-                    { renderAvatar() }
-                    <div style={{ marginRight: 7}}>
+                    {renderAvatar()}
+                    <div style={{ marginRight: 7 }}>
                         <Checkbox
                             id={title}
                             name="rate"
-                            label={<span style={{fontSize: 18}}>{rate}</span>}
+                            label={<span style={{ fontSize: 18 }}>{rate}</span>}
                             value={title}
-                            disabled={noRate || location.pathname === '/'? true : false}
+                            disabled={noRate || location.pathname === '/' ? true : false}
                             checkedIcon={<FontIcon primary style={styles.checkedIcon} iconClassName="fa fa-star" />}
                             uncheckedIcon={<FontIcon style={styles.checkedIcon} iconClassName="fa fa-star" />}
                             onChange={handleRate}
@@ -120,5 +121,3 @@ Pics.PropTypes = {
     onDelete: PropTypes.func
 }
 export default Pics;
-
-//<Button flat iconClassName="fa fa-star" id="star"><span id="count">{20}</span></Button>
