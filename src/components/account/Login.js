@@ -25,7 +25,9 @@ const Login = ({ onSignin, partialState, gotoTwitter, onGithubSignin, user, hand
        }
    }
     const login_twitter_url = process.env.NODE_ENV === "production"?
-      "/auth/twitter":"http://localhost:5000/auth/twitter";
+       "/auth/twitter" : "http://localhost:5000/auth/twitter";
+    const login_github_url = process.env.NODE_ENV === "production" ?
+        "/auth/github" : "http://localhost:5000/auth/github";
     return (
         <form className="login-form" onSubmit={onSignin}>
             <div className="login-form">
@@ -36,7 +38,7 @@ const Login = ({ onSignin, partialState, gotoTwitter, onGithubSignin, user, hand
                         className="twitter-button">
                         <div className="small-device btn">
                             <FontIcon iconClassName="fa fa-twitter" className="social-icon" />
-                                 <a rel="noopener noreferrer" href="http://localhost:5000/auth/github">Login with Twitter</a>
+                            <a rel="noopener noreferrer" href={login_twitter_url}>Login with Twitter</a>
                                 </div>
                     </Button>
                 </div>
@@ -45,7 +47,7 @@ const Login = ({ onSignin, partialState, gotoTwitter, onGithubSignin, user, hand
                         key="github"
                         raised
                         className="github-button"
-                        href="http://localhost:5000/auth/github">
+                        href={login_github_url}>
                         <div className="small-device btn">
                             <FontIcon iconClassName="fa fa-github" className="social-icon" />Login with Github
                         </div>
