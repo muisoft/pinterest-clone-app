@@ -1,5 +1,5 @@
 # Pinterest Clone App
->User stories:
+###User stories:
 >1. As an unauthenticated user, I can login with GitHub.
 >2. As an authenticated user, I can link to images.
 >3. As an authenticated user, I can delete images that I've linked to.
