@@ -10,7 +10,6 @@ module.exports = (passport) => {
             done(err, user);
         });
     });
-
     require('./passport-strategies/local-login')(passport);
     require('./passport-strategies/local-signup')(passport);
     require('./passport-strategies/github-login')(passport);
