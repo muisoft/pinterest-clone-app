@@ -6,7 +6,7 @@ module.exports = (passport) => {
       passport.use('twitter-login', new TwitterStrategy({
         consumerKey: process.env.TWITTER_API_KEY,
         consumerSecret: process.env.TWITTER_API_SECRET,
-        callbackURL: 'https://piccisy.herokuapp.com/auth/twitter/callback'
+        callbackURL: 'https://piccisy.herokuapp.com/auth/twitter/callback'//'http://localhost:5000/auth/twitter/callback'
       }, (accessToken, refreshToken, profile, done) =>{
         User.findOneAndUpdate( 
             { twitterId: profile.id},

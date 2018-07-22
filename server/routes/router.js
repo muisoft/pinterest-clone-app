@@ -34,7 +34,7 @@ router.get('/auth/twitter', (req, res, next) => {
 
 router.get("/auth/twitter/callback", (req, res, next) => {
   return passport.authenticate('twitter-login', {
-    successRedirect: redir + 'allpics',
+    successRedirect: redir,
     failureRedirect: redir + 'account/login'
   })(req, res, next);
 });
@@ -45,7 +45,7 @@ router.get('/auth/github', (req, res, next) => {
 
 router.get("/auth/github/callback", (req, res, next) => {
   return passport.authenticate('github', {
-    successRedirect: redir + 'allpics',
+    successRedirect: redir,
     failureRedirect: redir + 'account/login'
   })(req, res, next);
 });
