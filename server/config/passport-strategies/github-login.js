@@ -6,7 +6,7 @@ module.exports = (passport) => {
     passport.use(new GithubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: 'http://piccisy.herokuapp.com/auth/github/callback'
+        callbackURL: process.env.APP_BASE_URL + '/auth/github/callback'
     }, (accessToken, refreshToken, profile, done) => {
         User.findOneAndUpdate(
             { githubId: profile.id },
