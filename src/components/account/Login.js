@@ -6,7 +6,7 @@ import { Button, TextField, Card, FontIcon, Divider } from 'react-md';
 import { push } from 'react-router-redux';
 import { withMainComponent } from '../hoc';
 
-const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, location, history }) => {
+const Login = ({ onSignin, partialState, gotoTwitter, onGithubSignin, user, handleChange, location, history }) => {
    const styles = {
        submitButton: {
          marginTop: 15
@@ -25,7 +25,7 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
        }
    }
     const login_twitter_url = process.env.NODE_ENV === "production"?
-      "https://piccisy.herokuapp.com/auth/twitter":"http://localhost:5000/auth/twitter";
+      "/auth/twitter":"http://localhost:5000/auth/twitter";
     return (
         <form className="login-form" onSubmit={onSignin}>
             <div className="login-form">
@@ -35,8 +35,20 @@ const Login = ({ onSignin, partialState, gotoTwitter, user, handleChange, locati
                         raised
                         className="twitter-button">
                         <div className="small-device btn">
-                            <FontIcon iconClassName="fa fa-twitter" className="social-icon" /><a href={login_twitter_url}>Login with Twitter</a>
+                            <FontIcon iconClassName="fa fa-twitter" className="social-icon" />
+                                 <a rel="noopener noreferrer" href="http://localhost:5000/auth/github">Login with Twitter</a>
                                 </div>
+                    </Button>
+                </div>
+                <div className="actions">
+                    <Button
+                        key="github"
+                        raised
+                        className="github-button"
+                        href="http://localhost:5000/auth/github">
+                        <div className="small-device btn">
+                            <FontIcon iconClassName="fa fa-github" className="social-icon" />Login with Github
+                        </div>
                     </Button>
                 </div>
                 <div className="line-divider">
@@ -79,6 +91,7 @@ Login.PropTypes = {
     partialState: PropTypes.object,
     user: PropTypes.object,
     handleChange: PropTypes.func.isRequired,
+    onGithubSignin: PropTypes.func.isRequired
 }
 
 export default withMainComponent(Login);

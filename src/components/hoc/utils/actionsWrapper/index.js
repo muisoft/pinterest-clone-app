@@ -48,13 +48,17 @@ export const actionsWrapper = (props) => {
             props.toMyPics();
         },
         handleSignout: () => {
-            //props.resetAll();
+            props.resetAll();
             props.signout();
+            props.toLogin();
         },
         onSignin: (e) => {
-
             props.login(props.partialState);
-              e.preventDefault();
+            e.preventDefault();
+        },
+        onGithubSignin: (e) => {
+           props.githubSignin();
+           e.preventDefault();
         },
         onSignup: (e) => {
             e.preventDefault();

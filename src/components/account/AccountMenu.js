@@ -16,7 +16,7 @@ const AccountMenu = ({ simplifiedMenu, pics, username, image, signout, resetAll,
   return (
     <DropdownMenu
       id='account-menu'
-      menuItems={[<ListItem key="signout" primaryText="Signout" onClick={signout} />]}
+      menuItems={[<ListItem key="signout" primaryText="Signout" onClick={handleSignout} />]}
       anchor={{
         x: DropdownMenu.HorizontalAnchors.RIGHT,
         y: DropdownMenu.VerticalAnchors.BOTTOM,

@@ -16,4 +16,5 @@ module.exports = (passport) => {
     require('./passport-strategies/local-login')(passport);
     require('./passport-strategies/local-signup')(passport);
     require('./passport-strategies/twitter-login')(passport);
+    require('./passport-strategies/github-login')(passport);
 }

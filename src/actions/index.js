@@ -71,6 +71,9 @@ export const signup = (user) => {
 export const signin = (user) => {
     return postData('/signin', user, isSignin);
 }
+export const githubSignin = () => {
+    return getData('http://localhost:5000/auth/github', isSignin);
+}
 export const signout = () => {
     return getData('/signout', resetAll);
 }

@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux';
 import { signin, signup, signout, onRate, resetAll, getPics, getMyPics,
-    deletePics, showDialog, addNewPics } from '../../../../actions';
+    deletePics, showDialog, addNewPics, githubSignin } from '../../../../actions';
 
 export const mapStateToProps = ({ pinterest }) => {
     return {
@@ -23,6 +23,9 @@ export const mapDispatchToProps = (dispatch) => {
         },
         signup: (user) => {
             dispatch(signup(user))
+        },
+        githubSignin: () => {
+            dispatch(githubSignin())
         },
         resetAll: () => {
             dispatch(resetAll())
